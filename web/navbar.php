@@ -5,7 +5,7 @@
     <?php
     $filename = basename($_SERVER['PHP_SELF']);
 
-    if ($filename == 'about-us') {
+    if ($filename == 'about-us.php') {
         echo "<a href=\"home.php\">About Us</a>";
         echo "<a href=\"about-us.php\" id=\"highlight\">About Us</a>";
         echo "<a href=\"login.php\" >Login</a>";
