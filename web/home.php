@@ -5,9 +5,12 @@
 <title>Title</title>
 </head>
 <body>
-<div>
-<h1>Welcome!  You are not logged in.</h1>
-</div>
+    <?php
+        include("navbar.php");
+    ?>
+    <div>
+        <h1>Welcome!  You are not logged in.</h1>
+    </div>
 </body>
 
 

@@ -5,6 +5,9 @@
     <title>Title</title>
 </head>
 <body>
+<?php
+    include("navbar.php");
+?>
 <div>
     <a href="">Administrator Login</a>
     <a href="">Tester Login</a>
