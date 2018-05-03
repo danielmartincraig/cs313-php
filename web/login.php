@@ -6,10 +6,7 @@
 </head>
 <body>
 <div>
-    <h1>Rexburg Iphone Repair</h1>
+    <a href="">Administrator Login</a>
+    <a href="">Tester Login</a>
 </div>
-<div>
-    <p>Dropped your phone?  Bring it to us!</p>
-</div>
-
 </body>
