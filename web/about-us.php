@@ -5,9 +5,11 @@
     <title>Title</title>
 </head>
 <body>
-<div>
-    <h1>Rexburg Iphone Repair</h1>
-</div>
+
+<?php
+    include("navbar.php");
+?>
+
 <div>
     <p>Dropped your phone?  Bring it to us!</p>
 </div>
