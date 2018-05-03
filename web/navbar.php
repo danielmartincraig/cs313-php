@@ -1,7 +1,10 @@
 <header>
     <h1>Rexburg Iphone Repair</h1>
     <br>
-    <a href="home.php">Home</a>
-    <a href="about-us.php">About Us</a>
-    <a href="login.php">Login</a>
+    <?php
+        echo basename($_SERVER['PHP_SELF']);
+    ?>
+    <a href="home.php" id="home">Home</a>
+    <a href="about-us.php" id="aboutus">About Us</a>
+    <a href="login.php" id="login">Login</a>
 </header>
