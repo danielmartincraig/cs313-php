@@ -21,11 +21,6 @@
         <p>Although I don't know everything about it yet, I'll do my best to make this page informative and useful to those
             who are interested in Computational Linguistics like I am!</p>
     </div>
-    <div id="headerbar">
-        <?php
-        include "headerbar.php";
-        ?>
-    </div>
     <div id="sidebar">
         <p>Things that I love or that I want to learn</p>
         <ul>
@@ -36,6 +31,11 @@
             <li><a href="https://www.python.org/">Python 3</a></li>
             <li><a href="http://www.byui.edu/">My University</a></li>
         </ul>
+    </div>
+    <div id="headerbar">
+        <?php
+        include "headerbar.php";
+        ?>
     </div>
     <div id="maintext">
         <p>Over the two or so years, I've been really interested in learning about Computational Linguistics.  The idea
