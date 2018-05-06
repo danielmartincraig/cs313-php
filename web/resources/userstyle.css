@@ -7,6 +7,10 @@
     height: max-content;
 }
 
+#photo {
+    margin-right 20%;
+}
+
 #headerbar {
     position: relative;
     margin-left: 25%;
