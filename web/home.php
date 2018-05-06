@@ -33,6 +33,27 @@
         </ul>
     </div>
     <div id="maintext">
+        <p>Over the two or so years, I've been really interested in learning about Computational Linguistics.  The idea
+            that you can learn more about the features of a language by using statistics is so cool to me.  I love
+            novel applications of computers, and I think that the changes that computational linguistics will make in
+            computing in the next 20 years will be tremendous.</p>
+        <p>Already computational linguistics is changing society around us, and very very few people understand even
+            the most fundamental aspects of the field.  Voice assistants have changed the way that we think about our
+            computers.  Whereas their functionality was once simply accessible, it is now omnipresent to those who use
+            Siri, Google Assistant, Cortana, or Alexa.</p>
+        <p>Imagine today's children, who are growing up in a world where speaking to computers is natural.  Nowhere in
+            usage is any evidence that the mind behind the voice is a statistical model.  Like all technologies, the
+            degree of trust that we give to voice assistants must be well considered, because the most intimate details
+            of our lives are exposed when we open our home to AI models that listen to what we say. I hope to be
+            actively engaged in making valuable contributions to society via highly trustworthy and valuable natural
+            language applications.  Please note that
+            computational linguistics is much broader than just voice assistants.  It is closely tied to search, big
+            data, machine transcription, question answering services, natural language interfaces, machine translation,
+            and about 1000 other applications that will reshape our communications in new ways.</p>
+        <p>I love statistics and linguistics, and I want to break into the field because I believe that language is the
+            key to understanding.  I believe that computing can foster understanding between cultures, and in education,
+            in family history, and in general.  I hope to be a part of the revolution that brings more understanding to
+            the world via computational linguistics.</p>
     </div>
 </div>
 </body>
