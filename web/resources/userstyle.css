@@ -6,6 +6,12 @@
     border: thin black;
 }
 
+#headerbar {
+    position: absolute;
+    margin-top: 180px;
+    margin-left: 25%;
+}
+
 #sidebar {
     position: absolute;
     margin-top: 200px;
