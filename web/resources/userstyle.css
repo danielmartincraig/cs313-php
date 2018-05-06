@@ -9,6 +9,7 @@
 
 #photo {
     position: relative;
+    margin-left: 25px;
     width: 300px;
     height: auto;
 }
