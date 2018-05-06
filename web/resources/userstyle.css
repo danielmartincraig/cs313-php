@@ -4,6 +4,7 @@
     margin-right: 25%;
     background-color: peachpuff;
     border: thin black;
+    height: max-content;
 }
 
 #headerbar {
