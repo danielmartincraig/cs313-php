@@ -37,9 +37,7 @@
         include "headerbar.php";
         ?>
     </div>
-    <div>
-        <img id = photo src="resources/Daniel%20Craig.jpg">
-    </div>
+    <img id = photo src="resources/Daniel%20Craig.jpg">
     <div id="maintext">
         <p>Over the two or so years, I've been really interested in learning about Computational Linguistics.  The idea
             that you can learn more about the features of a language by using statistics is so cool to me.  I love
