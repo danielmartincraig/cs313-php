@@ -32,7 +32,12 @@
             <li><a href="http://www.byui.edu/">My University</a></li>
         </ul>
     </div>
-    <div id="maintext"><h1>UNDER CONSTRUCTION :)</h1></div>
+    <div id="headerbar">
+        <?php
+        include "headerbar.php";
+        ?>
+    </div>
+    <div id="maintext"><h1>UNDER CONSTRUCTION</h1></div>
 </div>
 </body>
 </html>
