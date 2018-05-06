@@ -1,7 +1,4 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: daniel
- * Date: 5/5/18
- * Time: 8:03 PM
- */
+<header>
+    <a href="home.php">HOME</a>
+    <a href="">Assignments</a>
+</header>
