@@ -1,4 +1,5 @@
 #banner {
+    position: absolute;
     margin-left: 25%;
     margin-right: 25%;
     background-color: peachpuff;
@@ -6,10 +7,13 @@
 }
 
 #sidebar {
+    position: absolute;
     margin-right: 20%;
     border: thin black;
 }
 
 #maintext {
+    position: absolute;
     margin-left: 25%;
+    margin-right: 25%;
 }
