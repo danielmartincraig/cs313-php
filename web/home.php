@@ -22,7 +22,7 @@
             who are interested in Computational Linguistics like I am!</p>
     </div>
     <div id="sidebar">
-        <h1>Things that I love or that I want to learn</h1>
+        <p>Things that I love or that I want to learn</p>
         <ul>
             <li><a href="https://www.amazon.com/Computational-Approaches-Morphology-Syntax-Surveys/dp/0199274789/">My current textbook</a></li>
             <li><a href="https://www.scottaaronson.com/blog/">Scott Aaronson's blog</a></li>
