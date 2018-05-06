@@ -1,9 +1,10 @@
-/**
+<?php/**
  * Created by PhpStorm.
  * User: daniel
  * Date: 5/5/18
  * Time: 6:36 PM
  */
+?>
 
 <!DOCTYPE html>
 <html lang="en">
