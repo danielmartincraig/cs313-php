@@ -21,9 +21,6 @@
         <p>Although I don't know everything about it yet, I'll do my best to make this page informative and useful to those
             who are interested in Computational Linguistics like I am!</p>
     </div>
-    <div>
-        <img id = photo src="resources/Daniel%20Craig.jpg">
-    </div>
     <div id="sidebar">
         <p>Things that I love or that I want to learn</p>
         <ul>
@@ -34,6 +31,9 @@
             <li><a href="https://www.python.org/">Python 3</a></li>
             <li><a href="http://www.byui.edu/">My University</a></li>
         </ul>
+    </div>
+    <div>
+        <img id = photo src="resources/Daniel%20Craig.jpg">
     </div>
     <div id="headerbar">
         <?php
