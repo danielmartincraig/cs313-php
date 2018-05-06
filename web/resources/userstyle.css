@@ -1,12 +1,15 @@
 #banner {
     margin-left: 25%;
     margin-right: 25%;
+    background-color: peachpuff;
+    border: thin black;
 }
 
 #sidebar {
-
+    margin-right: 40%;
+    border: thin black;
 }
 
 #maintext {
-
+    margin-left: 45%;
 }
