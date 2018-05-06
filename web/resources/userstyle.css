@@ -7,21 +7,18 @@
 }
 
 #headerbar {
-    position: absolute;
-    margin-top: 180px;
+    position: relative;
     margin-left: 25%;
 }
 
 #sidebar {
     position: relative;
-    margin-top: 200px;
     margin-right: 20%;
     border: thin black;
 }
 
 #maintext {
     position: relative;
-    margin-top: 200px;
     margin-left: 25%;
     margin-right: 25%;
 }
