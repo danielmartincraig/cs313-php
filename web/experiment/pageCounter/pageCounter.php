@@ -15,6 +15,7 @@ if (isset($_SESSION["visitCount"])) {
     $_SESSION["visitCount"] = $count;
 } else {
     $_SESSION["visitCount"] = "1";
+    $count = $_SESSION["visitCount"];
 }
 
 ?>
