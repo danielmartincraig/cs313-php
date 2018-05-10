@@ -8,10 +8,12 @@
 
 session_start();
 
-$_SESSION["visitCount"] = "1";
+
 
 if (isset($_SESSION["visitCount"])) {
-    $count = $_SESSION["visitCount"];
+    $count = $_SESSION["visitCount"] + 1;
+} else {
+    $_SESSION["visitCount"] = "1";
 }
 
 ?>
