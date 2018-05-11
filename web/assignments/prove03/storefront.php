@@ -45,7 +45,7 @@ if (isset($_SESSION['cart'])) {
         echo "<p>$item[description]</p>";
         echo "<strong>$item[price]</strong>";
         echo "<input type='hidden' name=$item[name]></hidden>";
-        echo "<input type='submit' name='addItemToCart' value='Add to Cart'>";
+        echo "<input type='submit' name='addItemToCart' value=$item>";
         echo "</div>";
     }
     ?>
