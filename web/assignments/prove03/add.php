@@ -6,7 +6,8 @@
  * Time: 8:27 PM
  */
 
-$cart[] = $_POST['addItemToCart'];
+#$cart[] = $_POST['addItemToCart'];
+$cart[] = "Hello";
 $_SESSION['cart'] = $cart;
 
 foreach ($cart as $item) {
