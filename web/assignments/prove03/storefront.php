@@ -14,11 +14,11 @@ $item3 = array('brand' => 'Meow Mix', 'name' => 'Cat Chow', 'description' => 'Ke
 
 $items = array($item1, $item2, $item3);
 
-if (isset($_SESSION['cart'])) {
-    $cart = $_SESSION['cart'];
+if (isset($_SESSION["cart"])) {
+    $cart = $_SESSION["cart"];
 } else {
     $cart = array();
-    $_SESSION['cart'] = $cart;
+    $_SESSION["cart"] = $cart;
 }
 
 ?>
@@ -34,12 +34,6 @@ if (isset($_SESSION['cart'])) {
 <div>
     <?php
     echo "You have " . count($cart) . " item(s) in your cart.";
-
-    $mylist = array('daniel', 'levan', 'braxton');
-
-    foreach ($mylist as $item) {
-        echo "<p>$item</p>";
-    }
     ?>
 </div>
 
