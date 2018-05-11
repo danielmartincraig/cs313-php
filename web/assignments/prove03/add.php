@@ -14,8 +14,7 @@ foreach ($cart as $item) {
 }
 
 
-#echo '<script type="text/javascript">
-#           window.location = "https://enigmatic-mountain-58448.herokuapp.com/assignments/prove03/storefront.php"
-#     </script>';
-
+echo '<script type="text/javascript">
+           window.location = "https://enigmatic-mountain-58448.herokuapp.com/assignments/prove03/storefront.php"
+     </script>';
 ?>
