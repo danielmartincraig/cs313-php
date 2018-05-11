@@ -25,7 +25,7 @@ $items = array($item1, $item2, $item3);
 <?php
 foreach ($items as $item) {
     echo "<div>";
-    echo "<h1>$item[brand] $item[$name]</h1>";
+    echo "<h1>$item[brand] $item[name]</h1>";
     echo "<p>$item[description]</p>";
     echo "<strong>$item[price]</strong>";
     echo "</div>";
