@@ -34,7 +34,10 @@ if (isset($_SESSION['cart'])) {
 <div>
     <?php
     echo "You have " . count($cart) . " item(s) in your cart.";
-    foreach ($cart as $item) {
+
+    $mylist = array('daniel', 'levan', 'braxton');
+
+    foreach ($mylist as $item) {
         echo "<p>$item</p>";
     }
     ?>
