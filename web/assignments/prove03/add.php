@@ -8,7 +8,7 @@
 
 echo $_POST['addItemToCart'];
 
-array_push($cart, $_POST['addItemToCart']);
+$cart[] = $_POST['addItemToCart']);
 $_SESSION['cart'] = $cart;
 
 echo $cart;
