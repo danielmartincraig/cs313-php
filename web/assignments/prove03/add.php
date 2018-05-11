@@ -6,7 +6,7 @@
  * Time: 8:27 PM
  */
 
-$cart = $_POST['addItemToCart'];
+array_push($cart, $_POST['addItemToCart']);
 $_SESSION['cart'] = $cart;
 
 echo '<script type="text/javascript">
