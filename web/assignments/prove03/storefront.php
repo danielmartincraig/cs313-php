@@ -24,7 +24,7 @@ items = array($item1, $item2, $item3);
 
 <?php
 for ($items as $key => $value) {
-    echo $key . " " . $value;
+    echo "$key $value";
 }
 ?>
 
