@@ -23,7 +23,7 @@ $items = array($item1, $item2, $item3);
 <h1>My Storefront</h1>
 
 <?php
-for ($items as $key => $value) {
+foreach ($items as $key => $value) {
     echo "$key $value";
 }
 ?>
