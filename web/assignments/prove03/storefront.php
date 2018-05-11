@@ -10,7 +10,7 @@ $item1 = array('brand' => 'Yeti', 'name' => 'Super Cooler', 'description' => 'Pe
 $item2 = array('brand' => 'Parker Brothers', 'name' => 'Monopoly', 'description' => 'Family Fun for Everyone!', 'price' => '$15.00');
 $item3 = array('brand' => 'Meow Mix', 'name' => 'Cat Chow', 'description' => 'Keeps your kitty healthy!', 'price' => '$8.00');
 
-items = array($item1, $item2, $item3);
+$items = array($item1, $item2, $item3);
 
 ?>
 
