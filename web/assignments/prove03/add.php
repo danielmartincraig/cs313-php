@@ -10,6 +10,8 @@
 $cart[] = "Hello";
 $_SESSION["cart"] = $cart;
 
+echo "<script type='text/javascript'>alert('cart');</script>";
+
 echo '<script type="text/javascript">
            window.location = "https://enigmatic-mountain-58448.herokuapp.com/assignments/prove03/storefront.php"
      </script>';
