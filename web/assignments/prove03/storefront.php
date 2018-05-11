@@ -34,6 +34,9 @@ if (isset($_SESSION['cart'])) {
 <div>
     <?php
     echo "You have " . count($cart) . " item(s) in your cart.";
+    foreach ($cart as $item) {
+        echo $item;
+    }
     ?>
 </div>
 
