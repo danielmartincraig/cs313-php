@@ -30,7 +30,7 @@ $items = array($item1, $item2, $item3);
         echo "<p>$item[description]</p>";
         echo "<strong>$item[price]</strong>";
         echo "<input type='hidden' name=$item[name]></hidden>";
-        echo "<input type='button'>Add to Cart</button>";
+        echo "<input type='button' value='Add to Cart'>";
         echo "</div>";
     }
     ?>
