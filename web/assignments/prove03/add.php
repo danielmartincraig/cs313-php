@@ -6,11 +6,13 @@
  * Time: 8:27 PM
  */
 
-#$cart[] = $_POST['addItemToCart'];
-$cart[] = "Hello";
+$cart = $_SESSION["cart"];
+$itemToAdd = $_POST['addItemToCart'];
+array_push($cart, $itemToAdd);
+
 $_SESSION["cart"] = $cart;
 
-echo "<script type='text/javascript'>alert(count($cart);</script>";
+#echo "<script type='text/javascript'>alert(count($cart);</script>";
 
 echo '<script type="text/javascript">
            window.location = "https://enigmatic-mountain-58448.herokuapp.com/assignments/prove03/storefront.php"
