@@ -36,17 +36,19 @@ if (!isset($_SESSION["cart"])) {
 </div>
 
 <form action="add.php" method="post">
+    <table>
     <?php
     foreach ($items as $item) {
-        echo "<div>";
+        echo "<tr>";
         echo "<h1>$item[brand] $item[name]</h1>";
         echo "<p>$item[description]</p>";
         echo "<strong>$item[price]</strong>";
         echo "<input type='hidden' name=$item[name]></hidden>";
         echo "<input type='submit' name='addItemToCart' value=$item>";
-        echo "</div>";
+        echo "</tr>";
     }
     ?>
+    </table>
 </form>
 
 </body>
