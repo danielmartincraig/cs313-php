@@ -1,0 +1,35 @@
+h1 {
+    font-family: "Helvetica", Times, serif;
+}
+
+p {
+    font-family: "Helvetica", Times, serif;
+}
+
+a {
+    font-family: "Palatino", Times, serif;
+    font-size: 200%;
+    text-decoration: none;
+}
+
+table {
+    margin-left: 15%;
+    position: relative;
+}
+
+body {
+    background-color: tan;
+}
+
+#cartbutton {
+    position: relative;
+}
+
+#cartlink {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    padding: 40px;
+    background-color: brown;
+    display: block;
+}
