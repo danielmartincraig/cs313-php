@@ -37,7 +37,7 @@
         include "headerbar.php";
         ?>
     </div>
-    <div id="maintext"><h1>UNDER CONSTRUCTION</h1></div>
+    <a href="assignments/prove03/php/storefront.php">Prove 03</a>
 </div>
 </body>
 </html>
