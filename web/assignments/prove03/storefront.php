@@ -20,7 +20,6 @@ if (!isset($_SESSION["cart"])) {
 
 ?>
 
-
 <html>
 <head>
 
@@ -31,7 +30,7 @@ if (!isset($_SESSION["cart"])) {
 <div>
     <?php
     $cart = $_SESSION['cart'];
-    echo "You have " . count($cart) . " item(s) in your cart.";
+    echo "<a href='viewCart.php'>Cart (" . count($cart) . ")</a>";
     ?>
 </div>
 
