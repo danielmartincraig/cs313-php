@@ -35,6 +35,7 @@ catch (PDOException $ex)
 <html>
 
 <head>
+    <link type="text/css" rel="stylesheet" href="main.css">
 </head>
 
 <body>
@@ -47,9 +48,11 @@ $rows = $statement->fetchall(PDO::FETCH_ASSOC);
 
 foreach ($rows as $row) {
     $title = $row['title'];
-
-
+    echo "<div id='note'>";
     echo "<p>$title</p>";
+    echo "</div>";
+
+
 }
 
 ?>
