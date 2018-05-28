@@ -38,6 +38,7 @@
         ?>
     </div>
     <a href="assignments/prove03/php/storefront.php">Prove 03</a>
+    <a href="assignments/TreeStyleNotes/treeStyleNotes.php">Tree Style Notes</a>
 </div>
 </body>
 </html>
