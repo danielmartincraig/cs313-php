@@ -31,22 +31,23 @@ catch (PDOException $ex)
 
 ?>
 
-p<!doctype html>
+<!doctype html>
 <html>
 
 <head>
 </head>
 
 <body>
-<div>
-    <h1>My Site</h1>
-</div>
-
 <div id="title"><h1>Tree Style Notes</h1></div>
 
 <?php
-$statement = $db->prepare("SELECT category_id, color_id, parent_id, title, body, starred FROM notes");
+$statement = $pdo->prepare("SELECT category_id, color_id, parent_id, title, body, starred FROM notes WHERE NOT title = 'HIDDEN ROOT NODE'");
 $statement->execute();
+$rows = $statement->fetchall(PDO::FETCH_ASSOC);
+
+foreach ($rows as $row) {
+    echo "FOUND A NOTE!";
+}
 
 ?>
 
