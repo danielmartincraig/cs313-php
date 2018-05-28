@@ -9,8 +9,15 @@
 
 try
 {
-    // Create the PDO connection
-    $db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
+    $db = parse_url(getenv("DATABASE_URL"));
+    $pdo = new PDO("pgsql:" . sprintf(
+            "host=%s;port=%s;user=%s;password=%s;dbname=%s",
+            $db["host"],
+            $db["port"],
+            $db["user"],
+            $db["pass"],
+            ltrim($db["path"], "/")
+        ));
     // this line makes PDO give us an exception when there are problems, and can be very helpful in debugging!
     $db->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
 }
