@@ -46,7 +46,10 @@ $statement->execute();
 $rows = $statement->fetchall(PDO::FETCH_ASSOC);
 
 foreach ($rows as $row) {
-    echo "FOUND A NOTE!";
+    $title = $row['title'];
+
+
+    echo "<p>$title</p>";
 }
 
 ?>
