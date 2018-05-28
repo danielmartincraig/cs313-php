@@ -19,7 +19,7 @@ try
             ltrim($db["path"], "/")
         ));
     // this line makes PDO give us an exception when there are problems, and can be very helpful in debugging!
-    $db->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
+    $pdo->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
 }
 catch (PDOException $ex)
 {
@@ -38,6 +38,10 @@ p<!doctype html>
 </head>
 
 <body>
+<div>
+    <h1>My Site</h1>
+</div>
+
 <div id="title"><h1>Tree Style Notes</h1></div>
 
 <?php
