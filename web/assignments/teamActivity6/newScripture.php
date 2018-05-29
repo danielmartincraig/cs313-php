@@ -44,11 +44,11 @@ $topic_name_stmt->execute();
 $topics = $topic_name_stmt->fetchall(PDO::FETCH_ASSOC);
 ?>
 
-<form action="submitScripture.php">
-    Book: <input type="text" name="Book"><br>
-    Chapter: <input type="text" name="Chapter"><br>
-    Verse: <input type="text" name="Verse"><br>
-    Content: <textarea name="Content"></textarea><br>
+<form action="submitScripture.php" method="post">
+    Book: <input type="text" name="book"><br>
+    Chapter: <input type="text" name="chapter"><br>
+    Verse: <input type="text" name="verse"><br>
+    Content: <textarea name="content"></textarea><br>
 
     <?php
 
