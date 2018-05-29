@@ -29,7 +29,7 @@ catch (PDOException $ex)
     die();
 }
 
-$get_children_stmt = $pdo->prepare("SELECT category_id, color_id, parent_id, title, body, starred FROM notes WHERE parent_id = :parent_id");
+$get_children_stmt = $pdo->prepare("SELECT category_id, color_id, parent_id, title, body, starred FROM notes WHERE parent_id = :parent_id AND NOT title = 'ROOT'");
 
 ?>
 

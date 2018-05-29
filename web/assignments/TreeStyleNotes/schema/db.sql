@@ -75,8 +75,8 @@ VALUES
   FROM colors
   WHERE color_name = 'BEIGE')
 , 1
-, 'HIDDEN ROOT NODE'
-, 'If you can see this, call your senator.'
+, 'ROOT'
+, 'Root'
 , FALSE);
 
 INSERT INTO notes(category_id, color_id, parent_id, title, body, starred)
@@ -90,8 +90,8 @@ VALUES
   WHERE color_name = 'BEIGE')
 , (SELECT note_id
   FROM notes
-  WHERE title = 'HIDDEN ROOT NODE'
-  AND body = 'If you can see this, call your senator.')
+  WHERE title = 'ROOT'
+  AND body = 'Root')
 , 'Remember to plan your wedding'
 , ''
 , FALSE);
