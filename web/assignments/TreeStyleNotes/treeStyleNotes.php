@@ -29,6 +29,8 @@ catch (PDOException $ex)
     die();
 }
 
+$get_children_stmt = $pdo->prepare("SELECT category_id, color_id, parent_id, title, body, starred FROM notes WHERE parent_id = :parent_id");
+
 ?>
 
 <!doctype html>
@@ -42,17 +44,17 @@ catch (PDOException $ex)
 <div id="title"><h1>Tree Style Notes</h1></div>
 
 <?php
-$statement = $pdo->prepare("SELECT category_id, color_id, parent_id, title, body, starred FROM notes WHERE NOT title = 'HIDDEN ROOT NODE'");
-$statement->execute();
-$rows = $statement->fetchall(PDO::FETCH_ASSOC);
 
-foreach ($rows as $row) {
-    $title = $row['title'];
+$get_children_stmt->execute(array(':parent_id' => 1));
+
+$major_notes = $get_children_stmt->fetchall(PDO::FETCH_ASSOC);
+
+foreach ($major_notes as $note) {
+    $title = $note['title'];
+
     echo "<div id='note'>";
     echo "<p>$title</p>";
     echo "</div>";
-
-
 }
 
 ?>

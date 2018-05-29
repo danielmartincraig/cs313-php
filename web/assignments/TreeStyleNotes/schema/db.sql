@@ -130,3 +130,20 @@ VALUES
 , 'This much postage will not come cheaply'
 , FALSE);
 
+INSERT INTO notes(category_id, color_id, parent_id, title, body, starred)
+VALUES
+((SELECT category_id
+  FROM categories
+  WHERE category_title = 'WEDDING'
+  AND category_description = 'Wedding Planning')
+, (SELECT color_id
+  FROM colors
+  WHERE color_name = 'GREEN')
+, (SELECT note_id
+  FROM notes
+  WHERE title = 'Address the invitations'
+  AND body = 'You need to hand-write every address')
+, 'Decide whether to put home address'
+, 'It makes more sense than putting AZ address on them'
+, TRUE);
+
