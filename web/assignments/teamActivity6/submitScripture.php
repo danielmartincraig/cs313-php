@@ -33,6 +33,12 @@ $chapter = $_POST['chapter'];
 $verse = $_POST['verse'];
 $content = $_POST['content'];
 
+$topic_name_stmt = $pdo->prepare("SELECT name FROM topic");
+$topic_name_stmt->execute();
+
+$topics = $topic_name_stmt->fetchall(PDO::FETCH_ASSOC);
+print_r($topics);
+
 $submit_scripture_stmt = $pdo->prepare("INSERT INTO scripture (book, chapter, verse, content) VALUES (:book, :chapter, :verse, :content);");
 $submit_scripture_stmt->execute(array(":book" => $book, ":chapter" => $chapter, ":verse" => $verse, ":content" => $content));
 
