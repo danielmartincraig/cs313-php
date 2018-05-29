@@ -33,7 +33,7 @@ VALUES
 
 INSERT INTO colors(color_name, color_string)
 VALUES
-('BEIGE', 'D4A190');
+('BEIGE', 'DAF7A6');
 
 INSERT INTO colors(color_name, color_string)
 VALUES
@@ -146,4 +146,5 @@ VALUES
 , 'Decide whether to put home address'
 , 'It makes more sense than putting AZ address on them'
 , TRUE);
+
 
