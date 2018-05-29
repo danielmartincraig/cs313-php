@@ -29,7 +29,31 @@ catch (PDOException $ex)
     die();
 }
 
-$get_children_stmt = $pdo->prepare("SELECT category_id, color_id, parent_id, title, body, starred FROM notes WHERE parent_id = :parent_id AND NOT title = 'ROOT'");
+function showChildren($pdo, $root)
+{
+    showChildrenWorker($pdo, $root, 0);
+}
+
+function showChildrenWorker($pdo, $root, $level) {
+    $get_children_stmt = $pdo->prepare("SELECT note_id, category_id, color_id, parent_id, title, body, starred FROM notes WHERE parent_id = :parent_id AND NOT title = 'ROOT'");
+
+    $get_children_stmt->execute(array(':parent_id' => $root));
+
+    $notes = $get_children_stmt->fetchall(PDO::FETCH_ASSOC);
+
+    foreach ($notes as $note) {
+        //incorporate some concept of level here - the html will keep them in order
+        $title = $note['title'];
+        $body = $note['body'];
+
+        echo "<div id=\"note_level_" . $level . "\" >";
+        echo "<strong>$title</strong>";
+        echo "<p>$body</p>";
+        echo "</div>";
+
+        showChildrenWorker($pdo, $note['note_id'], $level + 1);
+    }
+}
 
 ?>
 
@@ -45,17 +69,7 @@ $get_children_stmt = $pdo->prepare("SELECT category_id, color_id, parent_id, tit
 
 <?php
 
-$get_children_stmt->execute(array(':parent_id' => 1));
-
-$major_notes = $get_children_stmt->fetchall(PDO::FETCH_ASSOC);
-
-foreach ($major_notes as $note) {
-    $title = $note['title'];
-
-    echo "<div id='note'>";
-    echo "<p>$title</p>";
-    echo "</div>";
-}
+showChildren($pdo, 1);
 
 ?>
 
