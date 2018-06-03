@@ -17,4 +17,7 @@ $create_child_stmt = $pdo->prepare("INSERT INTO notes(category_id, color_id, par
 
 $create_child_stmt->execute(array(':parent_id' => $parent_id));
 
+header("Location: treeStyleNotes.php");
+die();
+
 ?>

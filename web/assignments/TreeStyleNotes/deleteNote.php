@@ -7,5 +7,7 @@
  */
 
 
+header("Location: treeStyleNotes.php");
+die();
 
 ?>
