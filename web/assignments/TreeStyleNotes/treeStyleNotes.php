@@ -25,17 +25,22 @@ function showChildrenWorker($pdo, $root, $level) {
 
     foreach ($notes as $note) {
         //incorporate some concept of level here - the html will keep them in order
+        $note_id = $note['note_id'];
         $title = $note['title'];
         $body = $note['body'];
         $color = $note['color_string'];
         $starred = $note['starred'];
 
         echo "<div id=\"note_level_" . $level . "\" style=\"background-color:#" . $color . "\">";
+        echo "<form action='createNote.php' method='post'>";
         echo "<strong>$title</strong>";
         if ($starred) {
             echo "<img src='../../resources/star.png' id='star'>";
         }
         echo "<p>$body</p>";
+        echo "<input type='hidden' name='note_id' id='note_id' value=" . $note_id . ">";
+        echo "<input type='submit' value='Add Note'>";
+        echo "</form>";
         echo "</div>";
 
         showChildrenWorker($pdo, $note['note_id'], $level + 1);
