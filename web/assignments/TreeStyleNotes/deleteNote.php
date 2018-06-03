@@ -6,6 +6,14 @@
  * Time: 1:27 AM
  */
 
+require("getDb.php");
+$pdo = getDbConnection();
+
+$note_id = $_POST['note_id'];
+
+$delete_child_stmt = $pdo->prepare("DELETE FROM notes WHERE note_id = :note_id");
+
+$delete_child_stmt->execute(array(':note_id' => $note_id));
 
 header("Location: treeStyleNotes.php");
 die();
