@@ -16,6 +16,34 @@ function showChildren($pdo, $root)
     showChildrenWorker($pdo, $root, 0);
 }
 
+function printNote($note, $level)
+{
+    $note_id = $note['note_id'];
+    $title = $note['title'];
+    $body = $note['body'];
+    $color = $note['color_string'];
+    $starred = $note['starred'];
+
+    echo "<div id=\"note_level_" . $level . "\" style=\"background-color:#" . $color . "\">";
+    echo "<strong>$title</strong>";
+    if ($starred) {
+        echo "<img src='../../resources/star.png' id='star'>";
+    }
+    echo "<p>$body</p>";
+
+    echo "<form action='createNote.php' method='post'>";
+    echo "<input type='hidden' name='note_id' id='note_id' value=" . $note_id . ">";
+    echo "<input type='submit' value='Add Note'>";
+    echo "</form>";
+
+    echo "<form action='deleteNote.php' method='post'>";
+    echo "<input type='hidden' name='note_id' id='note_id' value=" . $note_id . ">";
+    echo "<input type='submit' value='Delete Note'>";
+    echo "</form>";
+
+    echo "</div>";
+}
+
 function showChildrenWorker($pdo, $root, $level) {
     $get_children_stmt = $pdo->prepare("SELECT note_id, category_id, parent_id, title, body, starred, color_string FROM notes AS n INNER JOIN colors AS c ON n.color_id = c.color_id WHERE parent_id = :parent_id AND NOT title = 'ROOT'");
 
@@ -25,31 +53,7 @@ function showChildrenWorker($pdo, $root, $level) {
 
     foreach ($notes as $note) {
         //incorporate some concept of level here - the html will keep them in order
-        $note_id = $note['note_id'];
-        $title = $note['title'];
-        $body = $note['body'];
-        $color = $note['color_string'];
-        $starred = $note['starred'];
-
-        echo "<div id=\"note_level_" . $level . "\" style=\"background-color:#" . $color . "\">";
-        echo "<strong>$title</strong>";
-        if ($starred) {
-            echo "<img src='../../resources/star.png' id='star'>";
-        }
-        echo "<p>$body</p>";
-
-        echo "<form action='createNote.php' method='post'>";
-        echo "<input type='hidden' name='note_id' id='note_id' value=" . $note_id . ">";
-        echo "<input type='submit' value='Add Note'>";
-        echo "</form>";
-
-        echo "<form action='deleteNote.php' method='post'>";
-        echo "<input type='hidden' name='note_id' id='note_id' value=" . $note_id . ">";
-        echo "<input type='submit' value='Delete Note'>";
-        echo "</form>";
-
-        echo "</div>";
-
+        printNote($note, $level);
         showChildrenWorker($pdo, $note['note_id'], $level + 1);
     }
 }
