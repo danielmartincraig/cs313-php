@@ -37,7 +37,7 @@ function printNote($note, $level)
     echo "<div id='buttons'>";
         echo "<form action='createNote.php' method='post'>";
         echo "<input type='hidden' name='note_id' id='note_id' value=" . $note_id . ">";
-        echo "<input type='submit' value='Add Note'>";
+        echo "<input type='submit' value='Add Child Note'>";
         echo "</form>";
 
         echo "<form action='deleteNote.php' method='post'>";
