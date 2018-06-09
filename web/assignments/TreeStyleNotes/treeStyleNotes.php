@@ -24,15 +24,16 @@ function printNote($note, $level)
     $color = $note['color_string'];
     $starred = $note['starred'];
 
+    echo "<div id=$note_id>";
     echo "<div id=\"note_level_" . $level . "\" style=\"background-color:#" . $color . "\">";
 
-    echo "<div id='title' contenteditable='true'>$title</div>";
+    echo "<div id='title' contenteditable='true'>$title $level</div>";
 
     if ($starred) {
         echo "<img src='../../resources/star.png' id='star'>";
     }
 
-    echo "<div id='body' contenteditable='true' onblur='updateNote($note_id, $title, $body, $color, $starred)'>$body</div>";
+    echo "<div id='body' contenteditable='true' onblur=\"updateNote('$note_id', '$title', '$body', '$color', '$starred')\">$body</div>";
 
     echo "<div id='buttons'>";
         echo "<form action='createNote.php' method='post'>";
@@ -45,7 +46,7 @@ function printNote($note, $level)
         echo "<input type='submit' value='Delete Note'>";
         echo "</form>";
     echo "</div>";
-
+    echo "</div>";
     echo "</div>";
 }
 
@@ -73,7 +74,11 @@ function showChildrenWorker($pdo, $root, $level) {
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script>
         function updateNote(note_id, title, body, color, starred) {
-            
+            jQuery.ajax ({
+                type: "POST",
+                url: "updateNote.php",
+                data: {'note_id': note_id, 'title': title, 'body': body, 'color': color, 'starred': starred}
+            });
         }
     </script>
 </head>
