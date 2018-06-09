@@ -81,9 +81,11 @@ showChildren($pdo, 1);
 
 ?>
 
-<div>
+<form id="rootButtonForm" action="createNote.php" method="post">
+    <input type="hidden" id='note_id' name='note_id' value=1>
+    <input type="submit" value="Create new root node">
+</form>
 
-</div>
 </body>
 
 </html>

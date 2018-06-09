@@ -21,7 +21,7 @@ CREATE TABLE notes
 note_id SERIAL PRIMARY KEY,
 category_id INTEGER REFERENCES categories(category_id) NOT NULL,
 color_id INTEGER REFERENCES colors(color_id) NOT NULL,
-parent_id INTEGER REFERENCES notes(note_id) NOT NULL,
+parent_id INTEGER REFERENCES notes(note_id) ON DELETE CASCADE NOT NULL,
 title VARCHAR(40) NOT NULL,
 body VARCHAR(240),
 starred BOOLEAN NOT NULL
