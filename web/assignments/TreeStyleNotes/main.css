@@ -1,3 +1,17 @@
+#title {
+
+}
+
+#body {
+
+}
+
+#buttons {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+}
+
 #star {
     position: absolute;
     top: 0px;

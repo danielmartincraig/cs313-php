@@ -25,21 +25,26 @@ function printNote($note, $level)
     $starred = $note['starred'];
 
     echo "<div id=\"note_level_" . $level . "\" style=\"background-color:#" . $color . "\">";
-    echo "<strong>$title</strong>";
+
+    echo "<div id='title' contenteditable='true'>$title</div>";
+
     if ($starred) {
         echo "<img src='../../resources/star.png' id='star'>";
     }
-    echo "<p>$body</p>";
 
-    echo "<form action='createNote.php' method='post'>";
-    echo "<input type='hidden' name='note_id' id='note_id' value=" . $note_id . ">";
-    echo "<input type='submit' value='Add Note'>";
-    echo "</form>";
+    echo "<div id='body' contenteditable='true'>$body</div>";
 
-    echo "<form action='deleteNote.php' method='post'>";
-    echo "<input type='hidden' name='note_id' id='note_id' value=" . $note_id . ">";
-    echo "<input type='submit' value='Delete Note'>";
-    echo "</form>";
+    echo "<div id='buttons'>";
+        echo "<form action='createNote.php' method='post'>";
+        echo "<input type='hidden' name='note_id' id='note_id' value=" . $note_id . ">";
+        echo "<input type='submit' value='Add Note'>";
+        echo "</form>";
+
+        echo "<form action='deleteNote.php' method='post'>";
+        echo "<input type='hidden' name='note_id' id='note_id' value=" . $note_id . ">";
+        echo "<input type='submit' value='Delete Note'>";
+        echo "</form>";
+    echo "</div>";
 
     echo "</div>";
 }
