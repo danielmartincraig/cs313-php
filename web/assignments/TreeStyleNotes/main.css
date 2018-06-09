@@ -1,9 +1,10 @@
 #title {
-
+    word-wrap: break-word;
 }
 
 #body {
     width: 270px;
+    word-wrap: break-word;
 }
 
 #rootButtonForm {
