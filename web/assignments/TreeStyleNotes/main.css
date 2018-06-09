@@ -3,7 +3,7 @@
 }
 
 #body {
-
+    width: 270px;
 }
 
 #rootButtonForm {
@@ -22,8 +22,8 @@
     position: absolute;
     top: 0px;
     right: 0px;
-    width: 1cm;
-    height: 1cm;
+    width: 20px;
+    height: 20px;
 }
 
 #note_level_0 {
