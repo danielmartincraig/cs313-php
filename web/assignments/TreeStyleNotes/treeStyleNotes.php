@@ -32,7 +32,7 @@ function printNote($note, $level)
         echo "<img src='../../resources/star.png' id='star'>";
     }
 
-    echo "<div id='body' contenteditable='true' onblur='updateNote.php'>$body</div>";
+    echo "<div id='body' contenteditable='true' onblur='updateNote($note_id, $title, $body, $color, $starred)'>$body</div>";
 
     echo "<div id='buttons'>";
         echo "<form action='createNote.php' method='post'>";
@@ -70,6 +70,12 @@ function showChildrenWorker($pdo, $root, $level) {
 
 <head>
     <link type="text/css" rel="stylesheet" href="main.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        function updateNote(note_id, title, body, color, starred) {
+            
+        }
+    </script>
 </head>
 
 <body>
