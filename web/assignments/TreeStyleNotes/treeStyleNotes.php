@@ -11,22 +11,27 @@ require("getDb.php");
 
 $pdo = getDbConnection();
 
-function showChildren($pdo, $root)
+
+function getCategories($pdo)
 {
-    showChildrenWorker($pdo, $root, 0);
+    $get_categories_stmt = $pdo->prepare("SELECT category_id, category_title FROM categories WHERE NOT category_title = 'ROOT' ORDER BY category_title");
+    $get_categories_stmt->execute(array());
+
+    return $get_categories_stmt->fetchall(PDO::FETCH_ASSOC);
 }
 
-function printNote($note, $level)
+function showChildren($pdo, $categories, $root)
+{
+    showChildrenWorker($pdo, $categories, $root, 0);
+}
+
+function printNote($note, $categories, $level)
 {
     $note_id = $note['note_id'];
     $title = $note['title'];
     $body = $note['body'];
     $color = $note['color_string'];
     $starred = $note['starred'];
-
-    $get_categories_stmt =$pdo-> prepare("SELECT category SET title=:title, body=:body WHERE note_id=:note_id;");
-
-    $update_note_stmt->execute(array(':title' => $title, ':body' => $body, ':note_id' => $note_id));
 
     echo "<div id=$note_id class=\"note_level_$level\" style = \"background-color:#$color\">";
 
@@ -40,6 +45,10 @@ function printNote($note, $level)
 
     echo "<div id='buttons_$note_id' class='buttons'>";
     echo "<select name='category'>";
+    print_r($categories);
+
+    foreach ($categories as $category)
+        echo "<option value=" . $category['$category_title'] . ">" . $category['$category_title'] . "</option>";
     echo "</select>";
     echo "<input type='button' value='Add Child Note' onclick='createNote($note_id)'>";
     echo "<input type='button' value='Delete Note' onclick='deleteNote($note_id)'>";
@@ -50,16 +59,15 @@ function printNote($note, $level)
     echo "\n";
 }
 
-function showChildrenWorker($pdo, $root, $level) {
+function showChildrenWorker($pdo, $categories, $root, $level) {
     $get_children_stmt = $pdo->prepare("SELECT note_id, c.category_title, parent_id, title, body, starred, color_string FROM notes n INNER JOIN categories c ON n.category_id = c.category_id INNER JOIN colors co ON c.color_id = co.color_id WHERE parent_id = :parent_id AND NOT title = 'ROOT' ORDER BY note_id");
-
     $get_children_stmt->execute(array(':parent_id' => $root));
 
     $notes = $get_children_stmt->fetchall(PDO::FETCH_ASSOC);
 
     foreach ($notes as $note) {
         //incorporate some concept of level here - the html will keep them in order
-        printNote($note, $level);
+        printNote($note, $categories, $level);
         showChildrenWorker($pdo, $note['note_id'], $level + 1);
     }
 }
@@ -128,7 +136,8 @@ function showChildrenWorker($pdo, $root, $level) {
 
 <?php
 
-showChildren($pdo, 1);
+$categories = getCategories($pdo);
+showChildren($pdo, $categories,1);
 
 ?>
 
