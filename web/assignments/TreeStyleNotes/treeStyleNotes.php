@@ -93,7 +93,6 @@ function showChildrenWorker($pdo, $root, $level) {
                 url: "createNote.php",
                 data: {'parent_note_id': parent_note_id, 'title': title, 'body': body}
             });
-            alert("creating new note!");
         }
 
     </script>
