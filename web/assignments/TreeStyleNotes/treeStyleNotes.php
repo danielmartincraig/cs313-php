@@ -29,7 +29,7 @@ function printNote($note, $level)
     echo "<div id='title_$note_id' class='title' contenteditable='true'>$title</div>";
 
     if ($starred) {
-        echo "<img src='../../resources/star.png' id='star'>";
+        echo "<img src='../../resources/star.png' id='star_$note_id' class='star'>";
     }
 
     echo "<div id='body_$note_id' class='body' contenteditable='true' onblur=\"updateNote('$note_id', '$title', '$body', '$color', '$starred')\">$body</div>";
