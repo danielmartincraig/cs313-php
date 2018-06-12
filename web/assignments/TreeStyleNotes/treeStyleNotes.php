@@ -30,6 +30,7 @@ function printNote($note, $categories, $level)
     $note_id = $note['note_id'];
     $title = $note['title'];
     $body = $note['body'];
+    $category = $note['category_title'];
     $color = $note['color_string'];
     $starred = $note['starred'];
 
@@ -45,10 +46,14 @@ function printNote($note, $categories, $level)
 
     echo "<div id='buttons_$note_id' class='buttons'>";
 
-    echo "<select name='category' onchange='updateNote('$node_id', '$title', '$body')'>";
-    foreach ($categories as $category)
-        echo "<option value=\"" . $category['category_title'] . "\">" . $category['category_title'] . "</option>";
+    echo "<select name='category' onchange=\"updateNote('$note_id', '$title', '$body', '$category')\">";
+    foreach ($categories as $category_option) {
+        $category_title = $category_option['category_title'];
+        echo "<option value=\"$category_title\">$category_title</option>";
+    }
+
     echo "</select>";
+
     echo "<input type='button' value='Add Child Note' onclick='createNote($note_id)'>";
     echo "<input type='button' value='Delete Note' onclick='deleteNote($note_id)'>";
     echo "</div>";
