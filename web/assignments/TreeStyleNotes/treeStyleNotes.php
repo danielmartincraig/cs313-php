@@ -44,8 +44,8 @@ function printNote($note, $categories, $level)
     echo "<div id='body_$note_id' class='body' contenteditable='true' onblur=\"updateNote('$note_id', '$title', '$body')\">$body</div>";
 
     echo "<div id='buttons_$note_id' class='buttons'>";
-    echo "<select name='category'>";
 
+    echo "<select name='category' onchange='updateNote('$node_id', '$title', '$body')'>";
     foreach ($categories as $category)
         echo "<option value=\"" . $category['category_title'] . "\">" . $category['category_title'] . "</option>";
     echo "</select>";
