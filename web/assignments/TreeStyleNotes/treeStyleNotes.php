@@ -36,17 +36,17 @@ function printNote($note, $categories, $level)
 
     echo "<div id=$note_id class=\"note_level_$level\" style = \"background-color:#$color\">";
 
-    echo "<div id='title_$note_id' class='title' contenteditable='true' onblur=\"updateNote('$note_id', '$title', '$body')\">$title</div>";
+    echo "<div id='title_$note_id' class='title' contenteditable='true' onblur=\"updateNote('$note_id')\">$title</div>";
 
     if ($starred) {
         echo "<img src='../../resources/star.png' id='star_$note_id' class='star'>";
     }
 
-    echo "<div id='body_$note_id' class='body' contenteditable='true' onblur=\"updateNote('$note_id', '$title', '$body')\">$body</div>";
+    echo "<div id='body_$note_id' class='body' contenteditable='true' onblur=\"updateNote('$note_id')\">$body</div>";
 
     echo "<div id='buttons_$note_id' class='buttons'>";
 
-    echo "<select name='category' autocomplete=\"off\" onchange=\"updateNote('$note_id', '$title', '$body', '$category')\">";
+    echo "<select name='category' autocomplete=\"off\" onblur=\"updateNote('$note_id')\">";
     foreach ($categories as $category_option) {
         $category_title = $category_option['category_title'];
         if ($category_title == $category)
@@ -92,6 +92,7 @@ function showChildrenWorker($pdo, $categories, $root, $level) {
         function updateNote(note_id) {
             var title = document.getElementById('title_'.concat(note_id)).innerText;
             var body = document.getElementById('body_'.concat(note_id)).innerText;
+
 
             jQuery.ajax ({
                 type: "POST",
