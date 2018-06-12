@@ -46,7 +46,7 @@ function printNote($note, $categories, $level)
 
     echo "<div id='buttons_$note_id' class='buttons'>";
 
-    echo "<select id='category_$note_id' name='category' autocomplete=\"off\" onblur=\"updateNote('$note_id')\">";
+    echo "<select id='category_$note_id' name='category' autocomplete=\"off\" onchange=\"updateNote('$note_id')\">";
     foreach ($categories as $category_option) {
         $category_title = $category_option['category_title'];
         $category_id = $category_option['category_id'];
@@ -101,6 +101,7 @@ function showChildrenWorker($pdo, $categories, $root, $level) {
                 url: "updateNote.php",
                 data: {'note_id': note_id, 'title': title, 'body': body, 'category_id': category_id}
             });
+
         }
 
         function createNote(parent_note_id) {
@@ -113,7 +114,6 @@ function showChildrenWorker($pdo, $categories, $root, $level) {
                 data: {'parent_note_id': parent_note_id, 'title': title, 'body': body},
             });
 
-            location = location;
         }
 
         function deleteNote(note_id) {
@@ -123,7 +123,6 @@ function showChildrenWorker($pdo, $categories, $root, $level) {
                 data: {'note_id': note_id},
             });
 
-            location = location;
         }
 
     </script>
