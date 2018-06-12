@@ -36,7 +36,7 @@ function printNote($note, $level)
 
     echo "<div id='buttons_$note_id' class='buttons'>";
     echo "<input type='button' value='Add Child Note' onclick='createNote($note_id)'>";
-    echo "<input type='button' value='Delete Note' onclick='createNote($note_id)'>";
+    echo "<input type='button' value='Delete Note' onclick='deleteNote($note_id)'>";
     echo "</div>";
 
     echo "</div>";
@@ -68,15 +68,6 @@ function showChildrenWorker($pdo, $root, $level) {
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script>
 
-        $(document).ready(function(){
-            if (window.location.hash) {
-                var hash = window.location.hash;
-                var pos = hash.substring(3, hash.length); //3 is used to remove "#sp" from hash name
-                if(!isNaN(pos))
-                    window.scrollTo(0, pos);
-            }
-        });
-
         function updateNote(note_id) {
             var title = document.getElementById('title_'.concat(note_id)).innerText;
             var body = document.getElementById('body_'.concat(note_id)).innerText;
@@ -87,7 +78,6 @@ function showChildrenWorker($pdo, $root, $level) {
                 data: {'note_id': note_id, 'title': title, 'body': body}
             });
 
-            location = location;
         }
 
         function createNote(parent_note_id) {
@@ -98,10 +88,22 @@ function showChildrenWorker($pdo, $root, $level) {
                 type: "POST",
                 url: "createNote.php",
                 data: {'parent_note_id': parent_note_id, 'title': title, 'body': body},
-                success: function() {
-                    window.location.hash = "#sp" + $(window).scrollTop();
-                    window.location.reload(true);
-                },
+                error: function () {
+                    //alert("fail");
+                    setTimeout(function () {
+                        getMyJson();
+                    }, 5000)
+                }
+            });
+
+            location = location;
+        }
+
+        function deleteNote(note_id) {
+            jQuery.ajax ({
+                type: "POST",
+                url: "deleteNote.php",
+                data: {'note_id': note_id},
                 error: function () {
                     //alert("fail");
                     setTimeout(function () {
