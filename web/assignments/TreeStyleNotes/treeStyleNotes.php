@@ -26,7 +26,7 @@ function printNote($note, $level)
 
     echo "<div id=$note_id class=\"note_level_$level\" style = \"background-color:#$color\">";
 
-    echo "<div id='title' contenteditable='true'>$title $level</div>";
+    echo "<div id='title_$note_id' class='title' contenteditable='true'>$title</div>";
 
     if ($starred) {
         echo "<img src='../../resources/star.png' id='star'>";
