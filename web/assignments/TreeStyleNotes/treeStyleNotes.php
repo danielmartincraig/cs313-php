@@ -35,6 +35,8 @@ function printNote($note, $level)
     echo "<div id='body_$note_id' class='body' contenteditable='true' onblur=\"updateNote('$note_id', '$title', '$body')\">$body</div>";
 
     echo "<div id='buttons_$note_id' class='buttons'>";
+    echo "<select name='category'>";
+    echo "</select>";
     echo "<input type='button' value='Add Child Note' onclick='createNote($note_id)'>";
     echo "<input type='button' value='Delete Note' onclick='deleteNote($note_id)'>";
     echo "</div>";
@@ -77,7 +79,6 @@ function showChildrenWorker($pdo, $root, $level) {
                 url: "updateNote.php",
                 data: {'note_id': note_id, 'title': title, 'body': body}
             });
-
         }
 
         function createNote(parent_note_id) {
