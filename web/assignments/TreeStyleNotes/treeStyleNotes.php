@@ -51,7 +51,7 @@ function printNote($note, $level)
 }
 
 function showChildrenWorker($pdo, $root, $level) {
-    $get_children_stmt = $pdo->prepare("SELECT note_id, category_id, parent_id, title, body, starred, color_string FROM notes AS n INNER JOIN colors AS c ON n.color_id = c.color_id WHERE parent_id = :parent_id AND NOT title = 'ROOT'");
+    $get_children_stmt = $pdo->prepare("SELECT note_id, category_id, parent_id, title, body, starred, color_string FROM notes AS n INNER JOIN colors AS c ON n.color_id = c.color_id WHERE parent_id = :parent_id AND NOT title = 'ROOT' ORDER BY note_id");
 
     $get_children_stmt->execute(array(':parent_id' => $root));
 
