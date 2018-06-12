@@ -35,16 +35,10 @@ function printNote($note, $level)
     echo "<div id='body_$note_id' class='body' contenteditable='true' onblur=\"updateNote('$note_id', '$title', '$body')\">$body</div>";
 
     echo "<div id='buttons_$note_id' class='buttons'>";
-        echo "<form onsubmit=\"createNote('$note_id');\">";
-        echo "<input type='hidden' name='parent_note_id' id='parent_note_id' value=" . $note_id . ">";
-        echo "<input type='submit' value='Add Child Note'>";
-        echo "</form>";
-
-        echo "<form action='deleteNote.php' method='post'>";
-        echo "<input type='hidden' name='note_id' id='note_id' value=" . $note_id . ">";
-        echo "<input type='submit' value='Delete Note'>";
-        echo "</form>";
+    echo "<input type='button' value='Add Child Note' onclick='createNote($note_id)'>";
+    echo "<input type='button' value='Delete Note' onclick='createNote($note_id)'>";
     echo "</div>";
+
     echo "</div>";
     echo "</div>";
     echo "\n";
