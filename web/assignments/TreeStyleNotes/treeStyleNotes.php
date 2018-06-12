@@ -67,6 +67,16 @@ function showChildrenWorker($pdo, $root, $level) {
     <link type="text/css" rel="stylesheet" href="main.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script>
+
+        $(document).ready(function(){
+            if (window.location.hash) {
+                var hash = window.location.hash;
+                var pos = hash.substring(3, hash.length); //3 is used to remove "#sp" from hash name
+                if(!isNaN(pos))
+                    window.scrollTo(0, pos);
+            }
+        });
+
         function updateNote(note_id) {
             var title = document.getElementById('title_'.concat(note_id)).innerText;
             var body = document.getElementById('body_'.concat(note_id)).innerText;
@@ -88,6 +98,10 @@ function showChildrenWorker($pdo, $root, $level) {
                 type: "POST",
                 url: "createNote.php",
                 data: {'parent_note_id': parent_note_id, 'title': title, 'body': body},
+                success: function() {
+                    window.location.hash = "#sp" + $(window).scrollTop();
+                    window.location.reload(true);
+                },
                 error: function () {
                     //alert("fail");
                     setTimeout(function () {
