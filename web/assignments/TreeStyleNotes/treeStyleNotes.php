@@ -74,6 +74,9 @@ function showChildrenWorker($pdo, $root, $level) {
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script>
         function updateNote(note_id, title, body, color, starred) {
+            var temptitle = document.getElementById('title_'.concat(note_id)).innerText;
+            alert(temptitle);
+
             jQuery.ajax ({
                 type: "POST",
                 url: "updateNote.php",
