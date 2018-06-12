@@ -76,6 +76,8 @@ function showChildrenWorker($pdo, $root, $level) {
                 url: "updateNote.php",
                 data: {'note_id': note_id, 'title': title, 'body': body}
             });
+
+            location = location;
         }
 
         function createNote(parent_note_id) {
@@ -93,6 +95,8 @@ function showChildrenWorker($pdo, $root, $level) {
                     }, 5000)
                 }
             });
+
+            location = location;
         }
 
     </script>
