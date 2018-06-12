@@ -1,17 +1,18 @@
 DROP TABLE notes;
-DROP TABLE colors;
 DROP TABLE categories;
+DROP TABLE colors;
 
 CREATE TABLE colors
 (
 color_id SERIAL PRIMARY KEY,
-color_name VARCHAR NOT NULL,
+color_name VARCHAR NOT NULL UNIQUE,
 color_string VARCHAR NOT NULL
 );
 
 CREATE TABLE categories
 (
 category_id SERIAL PRIMARY KEY,
+color_id INTEGER REFERENCES colors(color_id) NOT NULL,
 category_title VARCHAR(30) NOT NULL,
 category_description VARCHAR(40) NOT NULL
 );
@@ -20,7 +21,6 @@ CREATE TABLE notes
 (
 note_id SERIAL PRIMARY KEY,
 category_id INTEGER REFERENCES categories(category_id) NOT NULL,
-color_id INTEGER REFERENCES colors(color_id) NOT NULL,
 parent_id INTEGER REFERENCES notes(note_id) ON DELETE CASCADE NOT NULL,
 title VARCHAR(40) NOT NULL,
 body VARCHAR(240),
@@ -43,51 +43,45 @@ INSERT INTO colors(color_name, color_string)
 VALUES
 ('YELLOW', 'D7DB7F');
 
-INSERT INTO categories(category_title, category_description)
+INSERT INTO categories(color_id, category_title, category_description)
 VALUES
-('SCHOOL', 'School');
+((SELECT color_id FROM colors WHERE color_name='YELLOW'), 'SCHOOL', 'School');
 
-INSERT INTO categories(category_title, category_description)
+INSERT INTO categories(color_id, category_title, category_description)
 VALUES
-('WORK', 'Work');
+((SELECT color_id FROM colors WHERE color_name='RED'), 'WORK', 'Work');
 
-INSERT INTO categories(category_title, category_description)
+INSERT INTO categories(color_id, category_title, category_description)
 VALUES
-('WEDDING', 'Wedding Planning');
+((SELECT color_id FROM colors WHERE color_name='BEIGE'), 'WEDDING', 'Wedding Planning');
 
-INSERT INTO categories(category_title, category_description)
+INSERT INTO categories(color_id, category_title, category_description)
 VALUES
-('Church', 'Church');
+((SELECT color_id FROM colors WHERE color_name='GREEN'), 'Church', 'Church');
 
 --A hidden root category
-INSERT INTO categories(category_title, category_description)
+INSERT INTO categories(color_id, category_title, category_description)
 VALUES
-('ROOT', 'Root');
+((SELECT color_id FROM colors WHERE color_name='GREEN'), 'ROOT', 'Root');
 
 --Add the hidden root note
-INSERT INTO notes(category_id, color_id, parent_id, title, body, starred)
+INSERT INTO notes(category_id, parent_id, title, body, starred)
 VALUES
 ((SELECT category_id
   FROM categories
   WHERE category_title = 'ROOT'
   AND category_description = 'Root')
-, (SELECT color_id
-  FROM colors
-  WHERE color_name = 'BEIGE')
 , 1
 , 'ROOT'
 , 'Root'
 , FALSE);
 
-INSERT INTO notes(category_id, color_id, parent_id, title, body, starred)
+INSERT INTO notes(category_id, parent_id, title, body, starred)
 VALUES
 ((SELECT category_id
   FROM categories
   WHERE category_title = 'WEDDING'
   AND category_description = 'Wedding Planning')
-, (SELECT color_id
-  FROM colors
-  WHERE color_name = 'BEIGE')
 , (SELECT note_id
   FROM notes
   WHERE title = 'ROOT'
@@ -96,15 +90,12 @@ VALUES
 , ''
 , FALSE);
 
-INSERT INTO notes(category_id, color_id, parent_id, title, body, starred)
+INSERT INTO notes(category_id, parent_id, title, body, starred)
 VALUES
 ((SELECT category_id
   FROM categories
   WHERE category_title = 'WEDDING'
   AND category_description = 'Wedding Planning')
-, (SELECT color_id
-  FROM colors
-  WHERE color_name = 'BEIGE')
 , (SELECT note_id
   FROM notes
   WHERE title = 'Remember to plan your wedding'
@@ -113,15 +104,12 @@ VALUES
 , 'You need to hand-write every address'
 , FALSE);
 
-INSERT INTO notes(category_id, color_id, parent_id, title, body, starred)
+INSERT INTO notes(category_id, parent_id, title, body, starred)
 VALUES
 ((SELECT category_id
   FROM categories
   WHERE category_title = 'WEDDING'
   AND category_description = 'Wedding Planning')
-, (SELECT color_id
-  FROM colors
-  WHERE color_name = 'BEIGE')
 , (SELECT note_id
   FROM notes
   WHERE title = 'Remember to plan your wedding'
@@ -130,15 +118,12 @@ VALUES
 , 'This much postage will not come cheaply'
 , FALSE);
 
-INSERT INTO notes(category_id, color_id, parent_id, title, body, starred)
+INSERT INTO notes(category_id, parent_id, title, body, starred)
 VALUES
 ((SELECT category_id
   FROM categories
   WHERE category_title = 'WEDDING'
   AND category_description = 'Wedding Planning')
-, (SELECT color_id
-  FROM colors
-  WHERE color_name = 'GREEN')
 , (SELECT note_id
   FROM notes
   WHERE title = 'Address the invitations'
@@ -147,15 +132,12 @@ VALUES
 , 'It makes more sense than putting AZ address on them'
 , TRUE);
 
-INSERT INTO notes(category_id, color_id, parent_id, title, body, starred)
+INSERT INTO notes(category_id, parent_id, title, body, starred)
 VALUES
 ((SELECT category_id
   FROM categories
   WHERE category_title = 'WEDDING'
   AND category_description = 'Wedding Planning')
-, (SELECT color_id
-  FROM colors
-  WHERE color_name = 'GREEN')
 , (SELECT note_id
   FROM notes
   WHERE title = 'Pay for postage'

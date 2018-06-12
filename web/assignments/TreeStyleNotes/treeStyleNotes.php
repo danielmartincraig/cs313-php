@@ -24,6 +24,10 @@ function printNote($note, $level)
     $color = $note['color_string'];
     $starred = $note['starred'];
 
+    $get_categories_stmt =$pdo-> prepare("SELECT category SET title=:title, body=:body WHERE note_id=:note_id;");
+
+    $update_note_stmt->execute(array(':title' => $title, ':body' => $body, ':note_id' => $note_id));
+
     echo "<div id=$note_id class=\"note_level_$level\" style = \"background-color:#$color\">";
 
     echo "<div id='title_$note_id' class='title' contenteditable='true' onblur=\"updateNote('$note_id', '$title', '$body')\">$title</div>";
@@ -47,7 +51,7 @@ function printNote($note, $level)
 }
 
 function showChildrenWorker($pdo, $root, $level) {
-    $get_children_stmt = $pdo->prepare("SELECT note_id, category_id, parent_id, title, body, starred, color_string FROM notes AS n INNER JOIN colors AS c ON n.color_id = c.color_id WHERE parent_id = :parent_id AND NOT title = 'ROOT' ORDER BY note_id");
+    $get_children_stmt = $pdo->prepare("SELECT note_id, c.category_title, parent_id, title, body, starred, color_string FROM notes n INNER JOIN categories c ON n.category_id = c.category_id INNER JOIN colors co ON c.color_id = co.color_id WHERE parent_id = :parent_id AND NOT title = 'ROOT' ORDER BY note_id");
 
     $get_children_stmt->execute(array(':parent_id' => $root));
 
