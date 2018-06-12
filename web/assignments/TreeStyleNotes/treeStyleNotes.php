@@ -99,7 +99,10 @@ function showChildrenWorker($pdo, $categories, $root, $level) {
             jQuery.ajax ({
                 type: "POST",
                 url: "updateNote.php",
-                data: {'note_id': note_id, 'title': title, 'body': body, 'category_id': category_id}
+                data: {'note_id': note_id, 'title': title, 'body': body, 'category_id': category_id},
+                success: function(json) {
+                    if(!json.error) location.reload(true);
+                }
             });
 
         }
@@ -112,6 +115,9 @@ function showChildrenWorker($pdo, $categories, $root, $level) {
                 type: "POST",
                 url: "createNote.php",
                 data: {'parent_note_id': parent_note_id, 'title': title, 'body': body},
+                success: function(json) {
+                    if(!json.error) location.reload(true);
+                }
             });
 
         }
@@ -121,6 +127,9 @@ function showChildrenWorker($pdo, $categories, $root, $level) {
                 type: "POST",
                 url: "deleteNote.php",
                 data: {'note_id': note_id},
+                success: function(json) {
+                    if(!json.error) location.reload(true);
+                }
             });
 
         }
