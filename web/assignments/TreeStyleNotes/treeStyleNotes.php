@@ -67,7 +67,7 @@ function showChildrenWorker($pdo, $categories, $root, $level) {
     foreach ($notes as $note) {
         //incorporate some concept of level here - the html will keep them in order
         printNote($note, $categories, $level);
-        showChildrenWorker($pdo, $note['note_id'], $level + 1);
+        showChildrenWorker($pdo, $categories, $note['note_id'], $level + 1);
     }
 }
 
