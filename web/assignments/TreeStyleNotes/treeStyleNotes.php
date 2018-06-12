@@ -108,12 +108,6 @@ function showChildrenWorker($pdo, $categories, $root, $level) {
                 type: "POST",
                 url: "createNote.php",
                 data: {'parent_note_id': parent_note_id, 'title': title, 'body': body},
-                error: function () {
-                    //alert("fail");
-                    setTimeout(function () {
-                        getMyJson();
-                    }, 5000)
-                }
             });
 
             location = location;
@@ -124,12 +118,6 @@ function showChildrenWorker($pdo, $categories, $root, $level) {
                 type: "POST",
                 url: "deleteNote.php",
                 data: {'note_id': note_id},
-                error: function () {
-                    //alert("fail");
-                    setTimeout(function () {
-                        getMyJson();
-                    }, 5000)
-                }
             });
 
             location = location;
