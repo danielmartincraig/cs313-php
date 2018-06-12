@@ -150,10 +150,7 @@ showChildren($pdo, $categories,1);
 
 </script>
 
-<form id="rootButtonForm" onsubmit="createNote(1)">
-    <input type="hidden" id='note_id' name='note_id' value=1>
-    <input type="submit" value="Create new root node">
-</form>
+<input id="rootButtonForm" type='button' value='Create new root node' onclick='createNote(1)'>
 
 </body>
 
