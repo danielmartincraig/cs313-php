@@ -32,7 +32,7 @@ function printNote($note, $level)
         echo "<img src='../../resources/star.png' id='star'>";
     }
 
-    echo "<div id='body' contenteditable='true' onblur=\"updateNote('$note_id', '$title', '$body', '$color', '$starred')\">$body</div>";
+    echo "<div id='body_$note_id' class='body' contenteditable='true' onblur=\"updateNote('$note_id', '$title', '$body', '$color', '$starred')\">$body</div>";
 
     echo "<div id='buttons'>";
         echo "<form action='createNote.php' method='post'>";

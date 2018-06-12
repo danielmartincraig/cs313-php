@@ -2,7 +2,7 @@
     word-wrap: break-word;
 }
 
-#body {
+.body {
     width: 270px;
     word-wrap: break-word;
     height: 100%;
