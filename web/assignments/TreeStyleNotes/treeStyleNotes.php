@@ -91,7 +91,13 @@ function showChildrenWorker($pdo, $root, $level) {
             jQuery.ajax ({
                 type: "POST",
                 url: "createNote.php",
-                data: {'parent_note_id': parent_note_id, 'title': title, 'body': body}
+                data: {'parent_note_id': parent_note_id, 'title': title, 'body': body},
+                error: function () {
+                    //alert("fail");
+                    setTimeout(function () {
+                        getMyJson();
+                    }, 5000)
+                }
             });
         }
 
