@@ -8,6 +8,7 @@ $data = json_decode(file_get_contents('php://input'), true);
 $note_id=$_POST['note_id'];
 $title=$_POST['title'];
 $body=$_POST['body'];
+$category_id=$_POST['category_id'];
 
 $update_note_stmt = $pdo->prepare("UPDATE notes SET title=:title, body=:body WHERE note_id=:note_id;");
 

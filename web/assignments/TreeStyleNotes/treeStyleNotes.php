@@ -46,13 +46,14 @@ function printNote($note, $categories, $level)
 
     echo "<div id='buttons_$note_id' class='buttons'>";
 
-    echo "<select name='category' autocomplete=\"off\" onblur=\"updateNote('$note_id')\">";
+    echo "<select id='category_$note_id' name='category' autocomplete=\"off\" onblur=\"updateNote('$note_id')\">";
     foreach ($categories as $category_option) {
         $category_title = $category_option['category_title'];
+        $category_id = $category_option['category_id'];
         if ($category_title == $category)
-            echo "<option value=\"$category_title\" selected=\"selected\">$category_title</option>";
+            echo "<option value=\"$category_id\" selected=\"selected\">$category_title</option>";
         else
-            echo "<option value=\"$category_title\">$category_title</option>";
+            echo "<option value=\"$category_id\">$category_title</option>";
     }
 
     echo "</select>";
@@ -92,12 +93,13 @@ function showChildrenWorker($pdo, $categories, $root, $level) {
         function updateNote(note_id) {
             var title = document.getElementById('title_'.concat(note_id)).innerText;
             var body = document.getElementById('body_'.concat(note_id)).innerText;
-
+            var e = document.getElementById('category_'.concat(note_id));
+            var category_id = e.options[e.selectedIndex].value;
 
             jQuery.ajax ({
                 type: "POST",
                 url: "updateNote.php",
-                data: {'note_id': note_id, 'title': title, 'body': body}
+                data: {'note_id': note_id, 'title': title, 'body': body, 'category_id': category_id}
             });
         }
 
