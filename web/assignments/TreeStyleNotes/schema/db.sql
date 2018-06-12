@@ -147,3 +147,28 @@ VALUES
 , TRUE);
 
 
+INSERT INTO notes(category_id, parent_id, title, body, starred)
+VALUES
+((SELECT category_id
+  FROM categories
+  WHERE category_title = 'SCHOOL'
+  AND category_description = 'School')
+, 1
+, 'Stay up late'
+, 'It will be worth it some day'
+, TRUE);
+
+INSERT INTO notes(category_id, parent_id, title, body, starred)
+VALUES
+((SELECT category_id
+  FROM categories
+  WHERE category_title = 'SCHOOL'
+  AND category_description = 'School')
+, (SELECT note_id
+  FROM notes
+  WHERE title = 'Stay up late'
+  AND body = 'It will be worth it some day')
+, 'You can sleep '
+, 'When you are dead'
+, TRUE);
+

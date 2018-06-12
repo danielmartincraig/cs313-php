@@ -46,10 +46,13 @@ function printNote($note, $categories, $level)
 
     echo "<div id='buttons_$note_id' class='buttons'>";
 
-    echo "<select name='category' onchange=\"updateNote('$note_id', '$title', '$body', '$category')\">";
+    echo "<select name='category' autocomplete=\"off\" onchange=\"updateNote('$note_id', '$title', '$body', '$category')\">";
     foreach ($categories as $category_option) {
         $category_title = $category_option['category_title'];
-        echo "<option value=\"$category_title\">$category_title</option>";
+        if ($category_title == $category)
+            echo "<option value=\"$category_title\" selected=\"selected\">$category_title</option>";
+        else
+            echo "<option value=\"$category_title\">$category_title</option>";
     }
 
     echo "</select>";
@@ -142,8 +145,11 @@ function showChildrenWorker($pdo, $categories, $root, $level) {
 
 $categories = getCategories($pdo);
 showChildren($pdo, $categories,1);
-
 ?>
+
+<script>
+
+</script>
 
 <form id="rootButtonForm" onsubmit="createNote(1)">
     <input type="hidden" id='note_id' name='note_id' value=1>
