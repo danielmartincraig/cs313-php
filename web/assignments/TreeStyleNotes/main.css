@@ -34,7 +34,7 @@
     border: 2px solid black;
     border-radius: 5px;
     width: 600px;
-    height: 200px;
+    height: 100px;
 }
 
 .note_level_1 {
@@ -42,7 +42,7 @@
     border: 2px solid black;
     border-radius: 5px;
     width: 600px;
-    height: 200px;
+    height: 100px;
     margin-left: 40px;
 }
 
@@ -51,7 +51,7 @@
     border: 2px solid black;
     border-radius: 5px;
     width: 600px;
-    height: 200px;
+    height: 100px;
     margin-left: 80px;
 }
 
@@ -60,7 +60,7 @@
     border: 2px solid black;
     border-radius: 5px;
     width: 600px;
-    height: 200px;
+    height: 100px;
     margin-left: 120px;
 }
 
@@ -69,7 +69,7 @@
     border: 2px solid black;
     border-radius: 5px;
     width: 600px;
-    height: 200px;
+    height: 100px;
     margin-left: 160px;
 }
 
@@ -78,7 +78,7 @@
     border: 2px solid black;
     border-radius: 5px;
     width: 600px;
-    height: 200px;
+    height: 100px;
     margin-left: 200px;
 }
 
@@ -87,6 +87,6 @@
     border: 2px solid black;
     border-radius: 5px;
     width: 600px;
-    height: 200px;
+    height: 100px;
     margin-left: 240px;
 }
