@@ -35,8 +35,8 @@ function printNote($note, $level)
     echo "<div id='body_$note_id' class='body' contenteditable='true' onblur=\"updateNote('$note_id', '$title', '$body')\">$body</div>";
 
     echo "<div id='buttons_$note_id' class='buttons'>";
-        echo "<form action='createNote.php' method='post'>";
-        echo "<input type='hidden' name='note_id' id='note_id' value=" . $note_id . ">";
+        echo "<form onsubmit=\"createNote('$note_id');\">";
+        echo "<input type='hidden' name='parent_note_id' id='parent_note_id' value=" . $note_id . ">";
         echo "<input type='submit' value='Add Child Note'>";
         echo "</form>";
 
@@ -83,6 +83,19 @@ function showChildrenWorker($pdo, $root, $level) {
                 data: {'note_id': note_id, 'title': title, 'body': body}
             });
         }
+
+        function createNote(parent_note_id) {
+            var title = "Edit me!";
+            var body = "Your edits are automatically saved when you click away.";
+
+            jQuery.ajax ({
+                type: "POST",
+                url: "createNote.php",
+                data: {'parent_note_id': parent_note_id, 'title': title, 'body': body}
+            });
+            alert("creating new note!");
+        }
+
     </script>
 </head>
 

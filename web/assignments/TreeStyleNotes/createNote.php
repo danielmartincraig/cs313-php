@@ -9,13 +9,14 @@
 require("getDb.php");
 $pdo = getDbConnection();
 
-$parent_id = $_POST['note_id'];
+$data = json_decode(file_get_contents('php://input'), true);
 
-$create_child_stmt = $pdo->prepare("INSERT INTO notes(category_id, color_id, parent_id, title, body, starred) VALUES ((SELECT category_id FROM categories WHERE category_title = 'WEDDING'  AND category_description = 'Wedding Planning'), (SELECT color_id  FROM colors  WHERE color_name = 'GREEN'), :parent_id, 'New Note', 'Edit this note to add your text.', TRUE)");
+$parent_note_id=$_POST['parent_note_id'];
+$title=$_POST['title'];
+$body=$_POST['body'];
 
-$create_child_stmt->execute(array(':parent_id' => $parent_id));
+$create_child_stmt = $pdo->prepare("INSERT INTO notes(category_id, color_id, parent_id, title, body, starred) VALUES ((SELECT category_id FROM categories WHERE category_title = 'WEDDING'  AND category_description = 'Wedding Planning'), (SELECT color_id  FROM colors  WHERE color_name = 'GREEN'), :parent_note_id, :title, :body, TRUE)");
 
-header("Location: treeStyleNotes.php");
-die();
+$create_child_stmt->execute(array(':parent_note_id' => $parent_note_id, ':title' => $title, ':body' => $body));
 
 ?>
