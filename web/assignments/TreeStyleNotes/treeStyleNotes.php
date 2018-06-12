@@ -24,8 +24,7 @@ function printNote($note, $level)
     $color = $note['color_string'];
     $starred = $note['starred'];
 
-    echo "<div id=$note_id>";
-    echo "<div id=\"note_level_" . $level . "\" style=\"background-color:#" . $color . "\">";
+    echo "<div id=$note_id class=\"note_level_$level\" style = \"background-color:#$color\">";
 
     echo "<div id='title' contenteditable='true'>$title $level</div>";
 
@@ -48,6 +47,7 @@ function printNote($note, $level)
     echo "</div>";
     echo "</div>";
     echo "</div>";
+    echo "\n";
 }
 
 function showChildrenWorker($pdo, $root, $level) {

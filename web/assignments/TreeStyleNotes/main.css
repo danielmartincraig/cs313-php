@@ -28,7 +28,7 @@
     height: 20px;
 }
 
-#note_level_0 {
+.note_level_0 {
     position: relative;
     border: 2px solid black;
     border-radius: 5px;
@@ -36,7 +36,7 @@
     height: 200px;
 }
 
-#note_level_1 {
+.note_level_1 {
     position: relative;
     border: 2px solid black;
     border-radius: 5px;
@@ -45,7 +45,7 @@
     margin-left: 20px;
 }
 
-#note_level_2 {
+.note_level_2 {
     position: relative;
     border: 2px solid black;
     border-radius: 5px;
@@ -54,7 +54,7 @@
     margin-left: 40px;
 }
 
-#note_level_3 {
+.note_level_3 {
     position: relative;
     border: 2px solid black;
     border-radius: 5px;
@@ -63,7 +63,7 @@
     margin-left: 60px;
 }
 
-#note_level_4 {
+.note_level_4 {
     position: relative;
     border: 2px solid black;
     border-radius: 5px;
@@ -72,7 +72,7 @@
     margin-left: 80px;
 }
 
-#note_level_5 {
+.note_level_5 {
     position: relative;
     border: 2px solid black;
     border-radius: 5px;
@@ -81,7 +81,7 @@
     margin-left: 100px;
 }
 
-#note_level_6 {
+.note_level_6 {
     position: relative;
     border: 2px solid black;
     border-radius: 5px;
