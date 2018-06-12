@@ -1,9 +1,10 @@
 .title {
+    width: 570px;
     word-wrap: break-word;
 }
 
 .body {
-    width: 270px;
+    width: 570px;
     word-wrap: break-word;
     height: 100%;
 }
@@ -32,7 +33,7 @@
     position: relative;
     border: 2px solid black;
     border-radius: 5px;
-    width: 300px;
+    width: 600px;
     height: 200px;
 }
 
@@ -40,52 +41,52 @@
     position: relative;
     border: 2px solid black;
     border-radius: 5px;
-    width: 300px;
+    width: 600px;
     height: 200px;
-    margin-left: 20px;
+    margin-left: 40px;
 }
 
 .note_level_2 {
     position: relative;
     border: 2px solid black;
     border-radius: 5px;
-    width: 300px;
+    width: 600px;
     height: 200px;
-    margin-left: 40px;
+    margin-left: 80px;
 }
 
 .note_level_3 {
     position: relative;
     border: 2px solid black;
     border-radius: 5px;
-    width: 300px;
+    width: 600px;
     height: 200px;
-    margin-left: 60px;
+    margin-left: 120px;
 }
 
 .note_level_4 {
     position: relative;
     border: 2px solid black;
     border-radius: 5px;
-    width: 300px;
+    width: 600px;
     height: 200px;
-    margin-left: 80px;
+    margin-left: 160px;
 }
 
 .note_level_5 {
     position: relative;
     border: 2px solid black;
     border-radius: 5px;
-    width: 300px;
+    width: 600px;
     height: 200px;
-    margin-left: 100px;
+    margin-left: 200px;
 }
 
 .note_level_6 {
     position: relative;
     border: 2px solid black;
     border-radius: 5px;
-    width: 300px;
+    width: 600px;
     height: 200px;
-    margin-left: 120px;
+    margin-left: 240px;
 }
